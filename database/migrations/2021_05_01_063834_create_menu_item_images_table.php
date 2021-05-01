@@ -20,7 +20,7 @@ class CreateMenuItemImagesTable extends Migration
             $table->increments('id');
             $table->integer('menu_item_id')->unsigned();
             $table->text('image');
-            $table->foreign('menu_item_id')->references('id')->on('menu_items')->onDelete('cascade');
+            //$table->foreign('menu_item_id')->references('id')->on('menu_items')->onDelete('cascade');
             $table->timestamps();
         });
     }

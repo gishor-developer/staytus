@@ -104,8 +104,12 @@ class MenuItemImageController extends Controller
     {
         $menu_item_image = MenuItemImage::find($id);
 
-        $menu_item_image->menu_item_id  = $id;
-        $menu_item_image->image         = $menu_item_image->image;
+        if(isset($request->menu_item_id) && $request->menu_item_id != ''){
+            $menu_item_image->menu_item_id = $request->menu_item_id;
+        }
+        if(isset($request->image) && $request->image != ''){
+            $menu_item_image->image = $request->image;
+        }
 
         if($menu_item_image->save()){
 
